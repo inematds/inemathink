@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!-- O Caminho Certo da IA — landing+guia INEMA. Conteudo verificado: dossie-caminho-certo-da-ia.md -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O Caminho Certo da IA — qualificação real, sem hype e sem medo</title>
+<meta name="description" content="Nem o guru que vende fumaça, nem o crítico que combate tudo. O caminho certo da IA é qualificação real: usar IA de verdade e desenvolver o que a IA não substitui — com dados verificados (Gartner, MIT, NBER, METR, Princeton, WEF).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#E2A23B; --amb2:#f0c070; --sky:#38bdf8;
+    --grn:#7bc96f; --red:#e07a5f;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#b9791d; --amb2:#a16207; --sky:#0369a1;
+    --grn:#3f7e34; --red:#b1492e;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  body.light nav{background:rgba(246,247,249,.82)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:760px){nav .links a.sec{display:none}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(226,162,59,.22),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.18rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:40ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:64ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.92rem;margin:0}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0}
+  pre .c{color:#6f6f7c} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px 1fr;gap:16px;margin-bottom:26px}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--amb);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .7em}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:3px 4px}
+
+  /* --- adicoes especificas desta pagina (usam as variaveis acima) --- */
+  .statpanel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 22px;box-shadow:0 30px 80px -30px #000}
+  .statpanel .row{display:flex;align-items:baseline;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .statpanel .row:last-child{border:none}
+  .statpanel .big{font-family:Sora;font-weight:800;font-size:1.7rem;color:var(--amb);flex:0 0 auto;min-width:118px}
+  .statpanel .big.dn{color:var(--red)} .statpanel .big.up{color:var(--grn)}
+  .statpanel .lbl{font-size:.86rem;color:var(--mut);line-height:1.4}
+  .axis{margin-top:8px}
+  .axis .head{display:flex;align-items:center;gap:12px;margin:34px 0 4px}
+  .axis .head .n{flex:0 0 auto;width:40px;height:40px;border-radius:10px;background:rgba(226,162,59,.14);color:var(--amb);font-family:Sora;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .axis .head h3{font-size:1.25rem}
+  .axis .head p{color:var(--mut);font-size:.92rem;margin:.15em 0 0}
+  details.sk{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:0;overflow:hidden}
+  details.sk>summary{list-style:none;cursor:pointer;padding:14px 16px;font-family:Sora;font-weight:600;font-size:.98rem;display:flex;align-items:center;gap:9px}
+  details.sk>summary::-webkit-details-marker{display:none}
+  details.sk>summary .ico{flex:0 0 auto}
+  details.sk>summary .pl{margin-left:auto;color:var(--amb);font-weight:800;transition:transform .2s}
+  details.sk[open]>summary .pl{transform:rotate(45deg)}
+  details.sk>summary small{display:block;color:var(--mut);font-weight:400;font-size:.8rem;margin-top:2px}
+  details.sk .body{padding:0 16px 16px;font-size:.9rem;color:var(--mut)}
+  details.sk .body b{color:var(--txt);font-weight:600}
+  details.sk .body .lastro{margin-top:10px;font-size:.8rem;color:var(--amb2);border-top:1px dashed var(--line);padding-top:8px}
+  .ev{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .ev .top{display:flex;align-items:center;gap:8px;margin-bottom:.5em;flex-wrap:wrap}
+  .ev .tag{font-size:.68rem;font-family:Sora;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.2em .55em;border-radius:6px}
+  .ev .tag.ok{color:var(--grn);background:rgba(123,201,111,.13)}
+  .ev .tag.warn{color:var(--amb);background:rgba(226,162,59,.14)}
+  .ev h3{font-size:1rem}
+  .ev p{color:var(--mut);font-size:.9rem;margin:.3em 0 0}
+  .ev .src{font-size:.78rem;margin-top:.7em}
+  .ev .src a{color:var(--sky)}
+  .note{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--amb);border-radius:10px;padding:14px 18px;font-size:.9rem;color:var(--mut)}
+  .note b{color:var(--txt)}
+  .quote{font-family:Sora;font-weight:600;font-size:clamp(1.25rem,2.6vw,1.7rem);line-height:1.3;letter-spacing:-.01em;max-width:24ch}
+  .quote .amb{color:var(--amb)}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🧭</span> O Caminho Certo da IA</a>
+  <span class="sep">|</span>
+  <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+  <div class="links">
+    <a class="sec" href="#ruido">O problema</a>
+    <a class="sec" href="#eixos">Os 2 eixos</a>
+    <a class="sec" href="#evidencia">Evidência</a>
+    <a class="sec" href="#mundo">O mundo</a>
+    <a class="sec" href="#plano">Plano</a>
+    <button class="tgl" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
+    <a class="btn" href="#plano">Começar</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Manifesto · Qualificação real em IA</span>
+      <h1>O caminho <span class="amb">certo</span> da IA</h1>
+      <p class="lead">Nem o guru que vende fumaça, nem o crítico que combate tudo. O caminho certo é qualificação real: <b style="color:var(--txt)">usar IA de verdade</b> e <b style="color:var(--txt)">desenvolver o que a IA não substitui</b>.</p>
+      <div class="cta">
+        <a class="btn" href="#plano">Começar pelo plano</a>
+        <a class="btn ghost" href="#evidencia">Ver as evidências</a>
+      </div>
+    </div>
+    <div class="statpanel">
+      <div class="row"><span class="big dn">40%+</span><span class="lbl">dos projetos de IA agêntica serão <b>cancelados</b> até 2027 — <span class="mut">Gartner (previsão)</span></span></div>
+      <div class="row"><span class="big dn">95%</span><span class="lbl">das organizações <b>sem retorno mensurável</b> em GenAI — <span class="mut">MIT NANDA (contestado)</span></span></div>
+      <div class="row"><span class="big up">+78M</span><span class="lbl">empregos <b>líquidos</b> criados até 2030 — <span class="mut">WEF Future of Jobs 2025</span></span></div>
+      <div class="row"><span class="big">12.200</span><span class="lbl">cursos universitários <b>trocados por IA</b> na China (2021–2025) — <span class="mut">SCMP</span></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== O PROBLEMA ===== -->
+<section id="ruido"><div class="wrap">
+  <span class="chip">O problema</span>
+  <h2>Entre o hype e o medo, ninguém te ensina o caminho</h2>
+  <p class="sub">Dois extremos travam as pessoas. De um lado, quem vende mágica. Do outro, quem diz que é tudo bolha. A verdade verificável está no meio — e exige trabalho.</p>
+  <div class="grid g3">
+    <div class="card"><h3>📣 O vendedor de fumaça</h3><p>Guru raso que vende curso e promessa sem competência real. O Gartner chama de <b>"agent washing"</b>: só ~130 de milhares de fornecedores de IA agêntica são genuínos.</p></div>
+    <div class="card"><h3>🛑 O crítico que combate</h3><p>O influenciador que minimiza tudo e diz que IA não serve. Erra pelo lado oposto — e ignora o empoderamento real, medido em estudos sérios.</p></div>
+    <div class="card"><h3>🧭 A saída: qualificação</h3><p>A causa raiz das falhas não é o modelo nem a regulação — é <b>falta de qualificação</b> para avaliar, integrar e medir IA. É exatamente o que dá pra aprender.</p></div>
+  </div>
+
+  <div style="margin-top:34px" class="grid g2">
+    <div class="card">
+      <h3 style="color:var(--red)">Por que tantos projetos falham</h3>
+      <p>O MIT identificou a <b>"lacuna de aprendizado"</b> como causa raiz: a ferramenta esquece o contexto, não aprende, não evolui. Resultado: para trabalho crítico, <b>90% ainda preferem humanos</b>. E a falha de avaliação nº1 é confiar na métrica do material de venda em vez de checar a "ground truth".</p>
+    </div>
+    <div class="card">
+      <h3 style="color:var(--grn)">Por que a IA empodera de verdade</h3>
+      <p>No suporte ao cliente, a IA aumentou a produtividade em <b>+14% na média e +34% para novatos</b> — disseminando a melhor prática dos mais experientes (estudo peer-reviewed, 3M+ conversas). O ganho é real. Mas tem um porém na próxima seção.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== A VIRADA ===== -->
+<section id="virada"><div class="wrap">
+  <span class="chip">A virada</span>
+  <h2>A ferramenta não te salva. A qualificação, sim.</h2>
+  <p class="sub">O achado mais importante de toda a pesquisa: o ganho da IA depende de quem usa e do que se faz com ela.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3>🧪 A ilusão de produtividade</h3>
+      <p>Num experimento controlado (METR, 2025), 16 desenvolvedores <b>experientes</b> usando IA nos próprios projetos ficaram <b style="color:var(--red)">19% MAIS LENTOS</b>. Pior: esperavam acelerar 24% e, mesmo depois de medido, ainda <b>achavam</b> que tinham acelerado 20%.</p>
+    </div>
+    <div class="card">
+      <h3>🎯 A reconciliação</h3>
+      <p>A IA ajuda <b>novato + tarefa simples</b> e pode atrapalhar <b>expert + código complexo</b>. Ou seja: a ferramenta sozinha não decide o resultado — <b>a qualificação de quem segura o leme decide</b>.</p>
+    </div>
+  </div>
+  <div style="margin-top:26px" class="note">
+    <b>A pergunta que organiza tudo</b> (do material que inspirou esta página): <i>"Quem eu preciso me tornar para continuar valioso num mundo onde a IA executa cada vez mais tarefas?"</i> — A resposta são os dois eixos abaixo.
+  </div>
+</div></section>
+
+<!-- ===== OS 2 EIXOS ===== -->
+<section id="eixos"><div class="wrap">
+  <span class="chip">O coração · os 2 eixos</span>
+  <h2>Alavancar com IA <span class="mut">+</span> Ser insubstituível</h2>
+  <p class="sub">Um eixo sem o outro vira meio discurso. Juntos, formam a qualificação completa: dominar a ferramenta e cultivar o que a ferramenta não faz. Clique em cada item para abrir.</p>
+
+  <!-- EIXO 1 -->
+  <div class="axis">
+    <div class="head">
+      <div class="n">1</div>
+      <div><h3>Alavancar com IA</h3><p>Usar a ferramenta de verdade — não como mágica, como ofício.</p></div>
+    </div>
+    <div class="grid g2" style="margin-top:14px">
+      <details class="sk"><summary><span class="ico">🌍</span><span>IA não é só para técnico<small>toda área usa IA no próprio trabalho</small></span><span class="pl">+</span></summary><div class="body">Você não precisa programar para usar IA com vantagem. Quem aplica IA nas tarefas reais da própria área — redação, vendas, planejamento, atendimento — larga na frente de quem espera "alguém de TI" resolver.</div></details>
+      <details class="sk"><summary><span class="ico">⭐</span><span>Virar a "pessoa de IA" do time<small>referência mesmo sem ser especialista</small></span><span class="pl">+</span></summary><div class="body">Aplicando IA em problemas concretos do dia a dia, você vira a referência prática da equipe. Não é sobre saber tudo — é sobre <b>resolver com IA</b> antes dos outros.</div></details>
+      <details class="sk"><summary><span class="ico">⚖️</span><span>Usar IA com julgamento humano<small>revisar, adaptar, assumir o resultado</small></span><span class="pl">+</span></summary><div class="body">Não basta aceitar qualquer resposta. É preciso revisar, adaptar ao seu estilo e decidir se o resultado merece levar o seu nome. A IA gera respostas convincentes — nem sempre corretas.<div class="lastro">Lastro: framework "AI Snake Oil" (Princeton) + "interrogue a ground truth" (MIT Sloan).</div></div></details>
+      <details class="sk"><summary><span class="ico">🧩</span><span>Engenharia de contexto<small>ensine a IA com dados reais do seu trabalho</small></span><span class="pl">+</span></summary><div class="body">A maior alavanca: em vez de conversas genéricas, alimente a IA com informações reais — seus projetos, prioridades, exemplos e padrões. Contexto bom é o que separa resposta medíocre de resposta sob medida.</div></details>
+      <details class="sk"><summary><span class="ico">🔁</span><span>Trabalhar por iteração<small>prototipar, testar, corrigir, melhorar</small></span><span class="pl">+</span></summary><div class="body">Pare de tentar acertar tudo de primeira. Faça rápido, teste, corrija e melhore continuamente. A velocidade vem do ciclo curto, não da perfeição inicial.</div></details>
+      <details class="sk"><summary><span class="ico">⚙️</span><span>Automatizar tarefas previsíveis<small>e saber quando NÃO usar IA</small></span><span class="pl">+</span></summary><div class="body">Identifique o que é repetitivo e previsível e automatize. E saiba a hora de usar uma automação simples em vez de IA — menos custo, menos risco, mais confiável.</div></details>
+      <details class="sk"><summary><span class="ico">🛡️</span><span>Criar segurança profissional e financeira<small>nova renda em torno de um interesse</small></span><span class="pl">+</span></summary><div class="body">Use IA para construir novas fontes de renda em torno de uma área que você domina, reduzindo a dependência de um único emprego. Transforme produtividade em vantagem de carreira.</div></details>
+    </div>
+  </div>
+
+  <!-- EIXO 2 -->
+  <div class="axis">
+    <div class="head">
+      <div class="n">2</div>
+      <div><h3>Ser insubstituível</h3><p>As 12 habilidades humanas que a IA não substitui — e que o WEF confirma como as mais valorizadas.</p></div>
+    </div>
+    <div class="grid g2" style="margin-top:14px">
+      <details class="sk"><summary><span class="ico">❤️</span><span>1. Empatia genuína<small>entender o outro de verdade</small></span><span class="pl">+</span></summary><div class="body">Colocar-se no lugar do outro com profundidade — dores, medos, contexto. A IA simula empatia em palavras, mas não sente nem cria vínculo real.<div class="lastro">WEF #7: empatia e escuta ativa — essencial para 50% das empresas.</div></div></details>
+      <details class="sk"><summary><span class="ico">🔍</span><span>2. Pensamento crítico<small>não aceitar tudo automaticamente</small></span><span class="pl">+</span></summary><div class="body">Questionar informações, separar fato de opinião, decidir com base em evidências. Quem não tem isso vira refém da resposta da máquina — que pode inventar dados.<div class="lastro">WEF #1: pensamento analítico — a habilidade central nº 1 (69% das empresas).</div></div></details>
+      <details class="sk"><summary><span class="ico">💡</span><span>3. Criatividade<small>gerar ideias e soluções novas</small></span><span class="pl">+</span></summary><div class="body">Combinar referências, imaginar possibilidades, achar saídas diferentes. A IA recombina padrões existentes; a criatividade humana nasce de vivência, emoção e propósito.<div class="lastro">WEF #4: pensamento criativo — 57% das empresas.</div></div></details>
+      <details class="sk"><summary><span class="ico">🕸️</span><span>4. Nexialismo<small>conectar áreas diferentes</small></span><span class="pl">+</span></summary><div class="body">Enxergar relações entre tecnologia, comportamento, economia, cultura. A IA entrega respostas específicas; quem conecta os pontos é o humano com visão ampla.<div class="lastro">Lastro: conhecimento tácito e interdisciplinar (Princeton/Mitchell).</div></div></details>
+      <details class="sk"><summary><span class="ico">📚</span><span>5. Repertório<small>experiências e referências acumuladas</small></span><span class="pl">+</span></summary><div class="body">O acervo de vivências, leituras e exemplos que sustenta boas perguntas e bom julgamento. Quem tem pouco repertório depende demais dos outros — inclusive da IA.</div></details>
+      <details class="sk"><summary><span class="ico">📊</span><span>6. Data literacy<small>não ser enganado por números</small></span><span class="pl">+</span></summary><div class="body">Ler, interpretar e questionar dados para decidir melhor. Não é ser cientista de dados — é não cair em gráfico bonito, métrica de vaidade ou conclusão errada.<div class="lastro">WEF #6: alfabetização tecnológica — 51% das empresas.</div></div></details>
+      <details class="sk"><summary><span class="ico">🔥</span><span>7. Vontade e propósito<small>direção e energia interna</small></span><span class="pl">+</span></summary><div class="body">Vontade é energia para agir; propósito é clareza do porquê. A IA não tem desejo próprio — não quer construir uma vida, realizar um sonho ou defender uma causa.<div class="lastro">WEF #5: motivação e autoconsciência — 52% das empresas.</div></div></details>
+      <details class="sk"><summary><span class="ico">🎯</span><span>8. Definir o que fazer<small>decidir prioridades</small></span><span class="pl">+</span></summary><div class="body">A IA ajuda a executar, mas alguém precisa decidir o que deve ser feito e qual problema importa. Executar ficou fácil; <b>decidir certo</b> ficou mais valioso.<div class="lastro">Lastro: a ilusão METR — saber o quê e medir resultado vale mais que velocidade.</div></div></details>
+      <details class="sk"><summary><span class="ico">🌊</span><span>9. Lidar com incerteza<small>agir sem ter todas as respostas</small></span><span class="pl">+</span></summary><div class="body">O mundo muda rápido; a IA acelera ainda mais. Quem precisa de segurança absoluta para agir fica paralisado. Quem se adapta tem vantagem.<div class="lastro">WEF #2: resiliência, flexibilidade e agilidade — 67% das empresas.</div></div></details>
+      <details class="sk"><summary><span class="ico">🤝</span><span>10. Conexão humana<small>confiança, presença, influência</small></span><span class="pl">+</span></summary><div class="body">Criar confiança, colaboração e relacionamento real. Quanto mais digital o mundo, mais valiosa a conexão verdadeira — pessoas confiam e compram de pessoas.<div class="lastro">WEF #3: liderança e influência social — 61% das empresas.</div></div></details>
+      <details class="sk"><summary><span class="ico">🧠</span><span>11. Aprender a aprender<small>estudar, desaprender, reaprender</small></span><span class="pl">+</span></summary><div class="body">Aprender continuamente, largar o que ficou ultrapassado e reaprender. Com a IA, o conhecimento técnico envelhece rápido — quem aprende rápido se adapta rápido.<div class="lastro">WEF #8: curiosidade e aprendizado ao longo da vida — 50% das empresas.</div></div></details>
+      <details class="sk"><summary><span class="ico">⚖️</span><span>12. Coragem ética<small>fazer o certo mesmo quando é difícil</small></span><span class="pl">+</span></summary><div class="body">Ter princípios num mundo onde a tecnologia serve tanto para ajudar quanto para manipular. A pergunta-chave: <i>"isso é possível, mas é correto?"</i> Não terceirizar responsabilidade para a máquina.</div></details>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== EVIDÊNCIA ===== -->
+<section id="evidencia"><div class="wrap">
+  <span class="chip">Camada de evidência · o anti-grift</span>
+  <h2>Afirmação com fonte. O oposto do guru raso.</h2>
+  <p class="sub">Tudo aqui foi verificado contra a fonte primária, com checagem adversarial. Onde há ressalva, ela aparece — porque número sem caveat também é fumaça.</p>
+  <div class="grid g2">
+    <div class="ev"><div class="top"><span class="tag warn">Previsão</span><h3>40%+ dos projetos agênticos cancelados até 2027</h3></div><p>Custos crescentes, valor incerto e controle de risco fraco. É uma previsão analítica — não um resultado já observado.</p><p class="src">Gartner, 25/06/2025 · <a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" target="_blank" rel="noopener">gartner.com</a></p></div>
+
+    <div class="ev"><div class="top"><span class="tag warn">Contestado</span><h3>95% das organizações sem ROI mensurável em GenAI</h3></div><p>Apesar de US$30–40 bi investidos. <b>Cuidado:</b> é working paper não revisado por pares, com conflito de interesse. E a mídia distorceu — o certo é "95% das <i>orgs</i> sem impacto em P&amp;L", não "95% dos pilotos falham".</p><p class="src">MIT NANDA, "The GenAI Divide", 2025</p></div>
+
+    <div class="ev"><div class="top"><span class="tag ok">Peer-reviewed</span><h3>+14% (média) e +34% (novatos) no suporte ao cliente</h3></div><p>A IA dissemina a melhor prática dos top performers e acelera o iniciante. Estudo robusto, 3M+ conversas reais, publicado no Quarterly Journal of Economics.</p><p class="src">Brynjolfsson, Li &amp; Raymond — NBER w31161 · <a href="https://www.nber.org/papers/w31161" target="_blank" rel="noopener">nber.org</a></p></div>
+
+    <div class="ev"><div class="top"><span class="tag ok">RCT</span><h3>Experts ficaram 19% MAIS lentos com IA</h3></div><p>E ainda acreditavam ter acelerado 20%. A prova de que ganho depende de habilidade + maturidade da tarefa, não da ferramenta. (Específico de devs experientes em código familiar.)</p><p class="src">METR, 10/07/2025 · <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" rel="noopener">metr.org</a></p></div>
+
+    <div class="ev"><div class="top"><span class="tag ok">Acadêmico</span><h3>"IA" são duas tecnologias diferentes</h3></div><p>A generativa avançou muito; a preditiva é "planilha Excel glorificada". Confundir as duas é a raiz da confusão pública — e do grift. Framework para separar sinal de ruído.</p><p class="src">Narayanan &amp; Kapoor (Princeton), "AI Snake Oil" · <a href="https://research.princeton.edu/news/ai-snake-oil-conversation-princeton-ai-experts-arvind-narayanan-and-sayash-kapoor" target="_blank" rel="noopener">princeton.edu</a></p></div>
+
+    <div class="ev"><div class="top"><span class="tag ok">Fonte primária</span><h3>+78M empregos líquidos até 2030</h3></div><p>170M criados, 92M deslocados; 22% dos empregos sofrem disrupção; ~39% das habilidades mudam; 63% das empresas travadas pela falta de skills. Pensamento analítico segue como skill nº 1.</p><p class="src">WEF Future of Jobs Report 2025 · <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" rel="noopener">weforum.org</a></p></div>
+  </div>
+  <div style="margin-top:20px" class="note">
+    <b>Transparência honesta:</b> os dados são de 2023–2026, num campo que muda rápido. As cifras do Gartner e do MIT são previsões/snapshots, não fatos consolidados. Os caveats acima fazem parte do método — é assim que se separa qualificação de hype.
+  </div>
+</div></section>
+
+<!-- ===== O MUNDO ===== -->
+<section id="mundo"><div class="wrap">
+  <span class="chip">O mundo se ajustando</span>
+  <h2>Países inteiros estão reescrevendo a educação para a era da IA</h2>
+  <p class="sub">Enquanto influenciadores discutem se IA "é bolha", governos já trataram alfabetização em IA como política de Estado. O recado: qualificar-se não é opcional.</p>
+  <div class="grid g3">
+    <div class="card"><h3>🇨🇳 China</h3><p><b>12.200 cursos</b> de graduação cortados (2021–2025, ~30% dos programas) e <b>~10.200 programas de IA/robótica</b> criados. O "AI + Education Action Plan" (2026) mira alfabetização em IA para <b>toda a sociedade</b> até 2030.</p></div>
+    <div class="card"><h3>🇪🇺 União Europeia</h3><p>O <b>Artigo 4 do AI Act</b> tornou a alfabetização em IA uma <b>obrigação legal</b> para empresas desde fev/2025. <span class="mut">(Pode ser suavizada em breve pelo "Digital Omnibus" — em tramitação.)</span></p></div>
+    <div class="card"><h3>🌐 Mercado global</h3><p>O WEF projeta que <b>~39% das habilidades mudam até 2030</b> e que a maioria da força de trabalho precisará de requalificação. O custo de não se atualizar é a obsolescência.</p></div>
+  </div>
+  <div style="margin-top:30px;text-align:center">
+    <p class="quote" style="margin:0 auto">É exatamente nisso que o <span class="amb">inema.club</span> aposta: ajudar você a conhecer IA de verdade <span class="amb">e</span> desenvolver as habilidades humanas para se empoderar no futuro com IA + humanoides.</p>
+  </div>
+</div></section>
+
+<!-- ===== PLANO ===== -->
+<section id="plano"><div class="wrap">
+  <span class="chip">Guia · plano de 4 semanas</span>
+  <h2>Comece hoje. Um mês para virar a chave.</h2>
+  <p class="sub">Os dois eixos rodam em paralelo: a cada semana você treina uma habilidade humana <b>e</b> aplica IA numa tarefa real. Sem esperar curso perfeito — por iteração.</p>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Semana 1 — Autoconhecimento</h3>
+    <p>Avalie-se de 0 a 10 em cada uma das 12 habilidades. Em quais sou forte? Em quais sou fraco? Quais são mais importantes para a minha carreira? Quais a IA mais ameaça no meu trabalho atual?</p>
+<pre><span class="c"># em paralelo, eixo 1:</span>
+<span class="k">escolha 1 tarefa repetitiva</span> da sua semana <span class="c"># candidata a IA ou automação</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Semana 2 — Pensamento e repertório</h3>
+    <p>Estude pensamento crítico, repertório, criatividade e nexialismo. Leia fora da sua área, questione informações, faça conexões entre assuntos, anote ideias novas.</p>
+<pre><span class="c"># eixo 1:</span>
+<span class="k">pratique engenharia de contexto</span> <span class="c"># dê à IA dados reais do seu trabalho, não prompts genéricos</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Semana 3 — Dados, decisão e incerteza</h3>
+    <p>Estude data literacy, priorização e adaptação. Aprenda noções básicas de dados, treine decidir melhor, escolha problemas que importam, faça pequenos testes em vez de esperar certeza total.</p>
+<pre><span class="c"># eixo 1:</span>
+<span class="k">automatize a tarefa da semana 1</span> <span class="c"># e meça o resultado REAL, não a percepção</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Semana 4 — Relações, propósito e ética</h3>
+    <p>Estude empatia, conexão humana, propósito e coragem ética. Converse melhor, escute mais, defina o que importa para você, pense nos impactos humanos das suas decisões.</p>
+<pre><span class="k">use IA como ferramenta</span>, <span class="c"># não como substituta da sua responsabilidade</span></pre>
+  </div></div>
+
+  <div class="note">
+    <b>A grande pergunta de estudo não é "como eu uso IA?"</b> — é <i>"quem eu preciso me tornar para continuar valioso num mundo onde a IA executa cada vez mais tarefas?"</i> A IA faz muita coisa. Mas ainda cabe ao ser humano decidir o que vale a pena fazer, por quê, para quem e com quais consequências.
+  </div>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">Gartner</div><div class="pill">MIT NANDA</div><div class="pill">NBER / QJE</div><div class="pill">METR</div><div class="pill">Princeton</div><div class="pill">WEF</div><div class="pill">SCMP</div>
+    <p style="margin-top:18px">O Caminho Certo da IA · manifesto de qualificação com dados verificados ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='caminho-certo-ia-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; }
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      localStorage.setItem(KEY, light?'light':'dark');
+    });
+  })();
+</script>
+</body>
+</html>

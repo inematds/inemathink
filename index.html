@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!-- inemathink — landing+guia do projeto (padrão INEMA). Self-contained. -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>inemathink — O Caminho Certo da IA</title>
+<meta name="description" content="O laboratório de pesquisa por trás do manifesto e do curso 'O Caminho Certo da IA': qualificação real em IA, sem hype e sem medo, com dados verificados.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#E2A23B; --amb2:#f0c070; --sky:#38bdf8;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#b9791d; --amb2:#a16207; --sky:#0369a1;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  body.light nav{background:rgba(246,247,249,.82)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:760px){nav .links a.sec{display:none}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(226,162,59,.22),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.16rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:42ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000;background:#fff}
+  .hero figure img{width:100%;display:block}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:60px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:64ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.92rem;margin:0}
+  .card.link{transition:border-color .15s} .card.link:hover{border-color:var(--amb)}
+  .card .go{display:inline-block;margin-top:.8em;font-family:Sora;font-weight:600;font-size:.85rem;color:var(--amb)}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0}
+  pre .c{color:#6f6f7c} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px 1fr;gap:16px;margin-bottom:22px}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--amb);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.1rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .2em}
+  .ex{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:680px){.ex{grid-template-columns:1fr}}
+  .ex figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff}
+  .ex figure img{width:100%;display:block}
+  .ex figcaption{padding:12px 14px;font-size:.88rem;color:var(--mut);background:var(--card)}
+  .note{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--amb);border-radius:10px;padding:14px 18px;font-size:.9rem;color:var(--mut)}
+  .note b{color:var(--txt)}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:3px 4px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🧭</span> inemathink</a>
+  <span class="sep">|</span>
+  <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+  <div class="links">
+    <a class="sec" href="#oque">O que é</a>
+    <a class="sec" href="#pesquisa">A pesquisa</a>
+    <a class="sec" href="#artefatos">Artefatos</a>
+    <a class="sec" href="#dados">Dados</a>
+    <a class="sec" href="#guia">Como explorar</a>
+    <button class="tgl" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
+    <a class="btn" href="https://github.com/inematds/inemathink" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Laboratório de pesquisa · O Caminho Certo da IA</span>
+      <h1>inema<span class="amb">think</span></h1>
+      <p class="lead">O laboratório por trás do manifesto e do curso <b style="color:var(--txt)">"O Caminho Certo da IA"</b>: qualificação real em IA — sem hype e sem medo, com cada número ancorado em fonte.</p>
+      <div class="cta">
+        <a class="btn" href="https://inematds.github.io/caminho-certo-da-ia-guia/" target="_blank" rel="noopener">Ver o manifesto</a>
+        <a class="btn ghost" href="https://inematds.github.io/caminho-certo-da-ia/" target="_blank" rel="noopener">Fazer o curso</a>
+      </div>
+    </div>
+    <figure><img src="graficosfuturo/photo_5131914679939697630_x.jpg" alt="Gráfico: Evolução da IA — dados históricos vs projeções 2019-2030 (investimento, adoção empresarial, robôs humanoides, regulação)"></figure>
+  </div>
+</header>
+
+<section id="oque"><div class="wrap">
+  <span class="chip">O que é</span>
+  <h2>Pesquisa que vira material — não opinião que vira hype</h2>
+  <p class="sub">O inemathink é onde a tese nasce: uma pergunta vira pesquisa verificada, a pesquisa vira manifesto, e o manifesto vira curso. Tudo com fonte e ressalva.</p>
+  <div class="grid g3">
+    <div class="card"><h3>🔬 Pesquisa verificada</h3><p>Deep research com verificação adversarial: cada afirmação passa por votação antes de virar conteúdo. Número sem fonte não entra.</p></div>
+    <div class="card"><h3>🧭 Tese clara</h3><p>A falha de IA não é o modelo — é falta de qualificação. O empoderamento é real, mas depende de quem usa e da tarefa.</p></div>
+    <div class="card"><h3>🛡️ Anti-grift</h3><p>O oposto do guru raso: afirmação com fonte, ressalva onde é previsão ou estudo contestado. Transparência é o método.</p></div>
+  </div>
+</div></section>
+
+<section id="pesquisa"><div class="wrap">
+  <span class="chip">A pesquisa</span>
+  <h2>Como a evidência foi construída</h2>
+  <p class="sub">Pipeline de deep research: decompõe a pergunta, busca em paralelo, coleta fontes, extrai afirmações falsificáveis, vota adversarialmente (3 votos por afirmação) e sintetiza com citação.</p>
+  <div class="flow">
+    <span>Decompor</span><span class="arr">→</span>
+    <span>Buscar (paralelo)</span><span class="arr">→</span>
+    <span>Coletar fontes</span><span class="arr">→</span>
+    <span>Extrair afirmações</span><span class="arr">→</span>
+    <span>Verificação adversarial 3 votos</span><span class="arr">→</span>
+    <span>Sintetizar + citar</span>
+  </div>
+  <div style="margin-top:24px" class="note">
+    <b>Fontes-chave:</b> Gartner (40%+ dos projetos agênticos cancelados até 2027 — previsão), MIT NANDA (95% sem ROI — contestado), NBER/QJE Brynjolfsson (+14%/+34%), METR (expert 19% mais lento), Princeton "AI Snake Oil", WEF (+78M empregos líquidos), China (12.200 cursos trocados por IA) e UE (AI Act Art. 4). Detalhe completo no <a href="dossie-caminho-certo-da-ia.md">dossiê</a>.
+  </div>
+</div></section>
+
+<section id="artefatos"><div class="wrap">
+  <span class="chip">Artefatos</span>
+  <h2>O que saiu daqui</h2>
+  <p class="sub">Três entregas públicas, da mais rápida à mais profunda.</p>
+  <div class="grid g3">
+    <a class="card link" href="https://inematds.github.io/caminho-certo-da-ia-guia/" target="_blank" rel="noopener"><h3>📄 Manifesto</h3><p>Página única com a tese e os números de contraste (40% · 95% · +78M · 12.200).</p><span class="go">Abrir →</span></a>
+    <a class="card link" href="https://inematds.github.io/caminho-certo-da-ia/" target="_blank" rel="noopener"><h3>🎓 Curso v2</h3><p>2 trilhas, 3 módulos, 19 tópicos. Os 7 hábitos + as 12 habilidades, com camada de aprendizagem.</p><span class="go">Fazer o curso →</span></a>
+    <a class="card link" href="dossie-caminho-certo-da-ia.md"><h3>📚 Dossiê</h3><p>A base de evidência verificada — toda afirmação com fonte e ressalva.</p><span class="go">Ler o dossiê →</span></a>
+  </div>
+</div></section>
+
+<section id="dados"><div class="wrap">
+  <span class="chip">Dados</span>
+  <h2>IA, adoção e humanoides — 2019 a 2030</h2>
+  <p class="sub">Gráficos da análise (em <code>graficosfuturo/</code>): histórico vs projeções de investimento, adoção empresarial, robôs humanoides e regulação.</p>
+  <div class="ex">
+    <figure><img src="graficosfuturo/comparacao_adocao_empresarial.png" alt="Gráfico de adoção empresarial de IA"><figcaption>Adoção empresarial de IA — histórico e projeção.</figcaption></figure>
+    <figure><img src="graficosfuturo/robo_humanoides_comparacao_escalas.png" alt="Gráfico de comparação de escalas de robôs humanoides"><figcaption>Robôs humanoides — comparação de escalas de crescimento.</figcaption></figure>
+    <figure><img src="graficosfuturo/comparacao_mercado_ia_completa.png" alt="Gráfico comparativo do mercado de IA"><figcaption>Mercado de IA — comparação completa.</figcaption></figure>
+    <figure><img src="graficosfuturo/validacao_completa_ia_marco_2026.png" alt="Gráfico de validação completa de dados de IA, março 2026"><figcaption>Validação dos dados — março/2026.</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="guia"><div class="wrap">
+  <span class="chip">Como explorar</span>
+  <h2>Por onde começar</h2>
+  <p class="sub">Três caminhos, conforme seu tempo.</p>
+  <div class="step"><div class="b">1</div><div>
+    <h3>Tem 3 minutos? Leia o manifesto</h3>
+    <p>A tese inteira numa página, com os 4 números de contraste e a frase-âncora.</p>
+    <p><a href="https://inematds.github.io/caminho-certo-da-ia-guia/" target="_blank" rel="noopener">inematds.github.io/caminho-certo-da-ia-guia →</a></p>
+  </div></div>
+  <div class="step"><div class="b">2</div><div>
+    <h3>Quer se qualificar? Faça o curso</h3>
+    <p>2 trilhas (Alavancar com IA · Ser insubstituível), 19 tópicos, com progresso e plano de 4 semanas.</p>
+    <p><a href="https://inematds.github.io/caminho-certo-da-ia/" target="_blank" rel="noopener">inematds.github.io/caminho-certo-da-ia →</a></p>
+  </div></div>
+  <div class="step"><div class="b">3</div><div>
+    <h3>Quer conferir as fontes? Leia o dossiê</h3>
+    <p>Cada número com fonte, data e ressalva — a prova de que não é hype.</p>
+    <p><a href="dossie-caminho-certo-da-ia.md">dossie-caminho-certo-da-ia.md →</a></p>
+  </div></div>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">Deep research</div><div class="pill">Verificação adversarial</div><div class="pill">Gartner · MIT · NBER · METR · Princeton · WEF</div>
+    <p style="margin-top:18px">inemathink · O Caminho Certo da IA ·
+      <a href="https://github.com/inematds/inemathink">github.com/inematds/inemathink</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='inemathink-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; }
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      localStorage.setItem(KEY, light?'light':'dark');
+    });
+  })();
+</script>
+</body>
+</html>
